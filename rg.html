@@ -1,0 +1,63 @@
+<!DOCTYPE html><html>
+<head>
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<title>Dr. Abc Official Website | Register</title>
+
+
+</head>
+<body>
+<header>
+<h1>Dr. Abc Official Website</h1>
+</header>
+<nav>
+<ul>
+<li ><a href="index.html">Home</a> </li>
+<li ><a href="qa.html">Q&A </a> </li>
+<li class='active'><a href="rg.html">Register</a> </li>
+<li><a href="about.html">About</a></li>
+</nav>
+
+<section>
+<h3>Register</h3>
+
+<form id="reg">
+First name: <input type="text" id="FirstName" value="first name"><br>
+Last name: <input type="text" id="LastName" value="last name"><br>
+Registration Time:(must be from 5 pm to 10 pm) <input type="text" id="time" value="10:00">
+<input type="radio" name ="ra" id="time12" value="am">am <input type="radio" name ="ra" id="time12" value="pm" checked="true">pm 
+<br>
+</form>
+<button onclick="myFunction()">Register</button>
+
+<p id="msg"></p>
+
+<script>
+function getCheckedRadio(radio_group) {
+    for (var i = 0; i < radio_group.length; i++) {
+        var button = radio_group[i];
+        if (button.checked) {
+            return button;
+        }
+    }
+    return undefined;
+}
+
+function myFunction() {
+   var firstname = document.getElementById("FirstName");
+var lastname = document.getElementById("LastName");
+var time = document.getElementById("time");
+var time12 = getCheckedRadio(document.forms.reg.elements.ra);
+if(parseInt(time.value)<5 || parseInt( time.value)>10 || time12.value=="am")
+{
+document.getElementById("msg").innerHTML = "<p style='color:red'> the doctor isn't avaliable in that time. please select other time</p>";
+}
+else
+{
+document.getElementById("msg").innerHTML = "";
+alert("thanks Dear "+ firstname.value+" "+lastname.value+" you registerd for Dr. Abc today at"+ time.value);
+}
+}
+</script>
+</section>
+<footer>Copyright © DrAbc.com</footer>
+</body></html>
